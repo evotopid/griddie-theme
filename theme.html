@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{Title}</title>
+  <link rel="shortcut icon" href="{Favicon}" />
+  <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+  {block:Description}
+  <meta name="description" content="{MetaDescription}" />
+  {/block:Description}
+  
+  {block:Hidden}
+  <meta name="if:Border around avatar" content="1" />
+  <meta name="font:Title Font" content="Alternate Gothic" />
+  <meta name="font:Text Font" content="Arquitecta" />
+  <meta name="color:Main Background Color" content="#000" />
+  <meta name="color:Post Background Color" content="#111" />
+  <meta name="color:Title Color" content="#ff0" />
+  <meta name="color:Text Color" content="#fff" />
+  {/block:Hidden}
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="shortcut icon" href="{Favicon}" />
+  <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}" />
+  <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+  
+  <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/f3bfkux/Depn48d6v/style.css" />
+  <style>
+  body {
+    background-color: {color:Main Background Color};
+  }
+  
+  body, a:link, a:visited, a:hover, a:active {
+    font-family: {font:Text Font};
+    color: {color:Text Color};
+    text-decoration: none;
+  }
+  
+  #header_title,
+  #header_title a:link, #header_title a:visited, #header_title a:hover, #header_title a:active  {
+    font-family: {font:Title Font};
+    color: {color:Title Color};
+  }
+  
+  #post, .post {
+    background-color: {color:Post Background Color};
+  }
+  
+  {CustomCSS}
+  </style>
+  
+  <script src="http://static.tumblr.com/f3bfkux/rZen48c21/libraries.js"></script>
+  <script src="http://static.tumblr.com/f3bfkux/hsWn48c6s/theme.js"></script>
+  <script>
+  $(document).ready(function(){
+    startThemeJS();
+  });
+  </script>
+</head>
+<body>
+  <div id="header">
+    {block:ShowAvatar}
+    <div id="header_avatar"><a href="/"><img src="{PortraitURL-128}" class="{block:IfBorderAroundAvatar}border{/block:IfBorderAroundAvatar} {AvatarShape}" /></a></div>
+    {/block:ShowAvatar}
+  
+    <div id="header_title"><a href="/">{Title}</a></div>
+    <div id="header_links">
+      {block:HasPages}
+      {block:Pages}
+      <a href="{URL}">{Label}</a>
+      {/block:Pages}
+      {/block:HasPages}
+  
+      {block:AskEnabled}
+      <a href="/ask">{AskLabel}</a>
+      {/block:AskEnabled}
+  
+      {block:SubmissionsEnabled}
+      <a href="/submit">{SubmitLabel}</a>
+      {/block:SubmissionsEnabled}
+    </div>
+    
+    {block:Description}
+    <div id="header_description">
+      {Description}
+    </div>
+    {/block:Description}
+  </div>
+  
+  {block:IndexPage}
+  <div id="posts">
+  {block:Posts}
+    {block:Text}
+    <a class="post text post_hover" href="{Permalink}">
+      {block:Title}<span class="title">{PlaintextTitle}</span>{/block:Title}
+      <span class="content">{PlaintextBody}</span>
+    </a>
+    {/block:Text}
+    
+    {block:Answer}
+    <a class="post answer post_hover" href="{Permalink}">
+      <i>{Asker}: {Question}</i><br>
+      <span>{Answer}</span>
+    </a>
+    {/block:Answer}
+
+    {block:Photo}
+    <a class="post photo post_hover" href="{Permalink}">
+      <img src="{PhotoURL-250}" width="250" height="{PhotoHeight-250}" />
+    </a>
+    {/block:Photo}
+
+    {block:Photoset}
+    {block:Photos}
+    <a class="post photo photosetphoto" href="{Permalink}" data-photoset-id="{PostID}">
+      <img src="{PhotoURL-250}" width="250" />
+    </a>
+    {/block:Photos}
+    {/block:Photoset}
+
+    {block:Panorama}
+    <a class="post panorama post_hover" href="{Permalink}">
+      <img src="{PhotoURL-250}" />
+    </a>
+    {/block:Panorama}
+
+    {block:Quote}
+    <a class="post quote post_hover" href="{Permalink}">
+      {Quote}
+    </a>
+    {/block:Quote}
+
+    {block:Link}
+    <a class="post link post_hover" href="{Permalink}">
+      <span class="title">{Name}</span>
+      {block:Description}<span class="content">{Description}</span>{/block:Description}
+    </a>
+    {/block:Link}
+
+    {block:Chat}
+    <a class="post chat post_hover" href="{Permalink}">
+      {block:Lines}
+      {block:Label}<span class="label">{Label}</span>{/block:Label}
+      {Line}
+      {/block:Lines}
+    </a>
+    {/block:Chat}
+
+    {block:Video}
+    <a class="post video post_hover">
+      {Video-250}
+    </a>
+    {/block:Video}
+
+    {block:Audio}
+    <a class="post audio post_hover">
+      {AudioEmbed-250}
+    </a>
+    {/block:Audio}
+  {/block:Posts}
+  </div>
+  {/block:IndexPage}
+  
+  
+  {block:PermalinkPage}
+  <div id="post">
+  {block:Posts}
+    {block:Text}
+      {block:Title}<h1 class="title">{Title}</h1>{/block:Title}
+      <div class="content">{Body}</div>
+    {/block:Text}
+    
+    {block:Answer}
+      <h1 class="title">{Question}</h1>
+      <h2>Asked by {Asker}</h2>
+      <div class="content">{Answer}</div>
+    {/block:Answer}
+    
+    {block:Photo}
+      {block:ContentSource}<a href="{SourceURL}">{/block:ContentSource}
+      <img src="{PhotoURL-1280}" width="{PhotoWidth-1280}" height="{PhotoHeight-1280}" />
+      {block:ContentSource}</a>{/block:ContentSource}
+    {/block:Photo}
+        
+    {block:Photoset}
+      {block:ContentSource}<a href="{SourceURL}">{/block:ContentSource}
+      {Photoset-700}
+      {block:ContentSource}</a>{/block:ContentSource}
+    {/block:Photoset}
+        
+    {block:Panorama}
+      {LinkOpenTag}
+      <img src="{PhotoURL-500}" />
+      {/LinkCloseTag}
+    {/block:Panorama}
+        
+    {block:Quote}
+      {Quote}
+    {/block:Quote}
+        
+    {block:Link}
+      <div class="title"><a href="{URL}">{Name}</a></div>
+      {block:Description}<div class="content">{Description}</div>{/block:Description}
+    {/block:Link}
+        
+    {block:Chat}
+      {block:Lines}
+      {block:Label}<span class="label">{Label}</span>{/block:Label}
+      {Line}
+      {/block:Lines}
+    {/block:Chat}
+        
+    {block:Video}
+      {Video-500}
+    {/block:Video}
+    
+    {block:Audio}
+      {AudioEmbed}
+    {/block:Audio}
+        
+    <div id="post_info">
+      {block:Date}{DayOfMonthWithZero}.{MonthNumberWithZero}.{Year} {24HourWithZero}:{Minutes}{/block:Date}
+    
+      {block:HasTags}
+      <br>
+      {block:Tags}
+      <a href="{TagURL}">#{Tag}</a>   
+      {/block:Tags}
+      {/block:HasTags}
+    </div>
+        
+    <div id="notes">
+      {block:ContentSource}<div class="source">Source: <a href="{SourceURL}">{SourceTitle}</a></div>{/block:ContentSource}
+      {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+      {block:PostNotes}
+      <div id="notes_count">{NoteCountWithLabel}</div>
+      {PostNotes-64}
+      {/block:PostNotes}
+    </div>
+      
+  {/block:Posts}
+  </div>
+  {/block:PermalinkPage}
+  
+  {block:NextPage}
+  <div><a href="{NextPage}" id="nextpage">Next Page</a></div>
+  {/block:NextPage}
+  
+  <!-- used to store posts with images yet to be loaded... -->
+  <div id="temp_stack" style="display: none;"></div>
+  <!-- Shown when new posts are being loaded... -->
+  <div id="loader">Loading new posts...</div>
+</body>
+</html>

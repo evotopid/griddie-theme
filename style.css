@@ -1,0 +1,244 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+#header {
+  padding: 15px;
+}
+
+#header_links {
+  font-size: 12pt;
+  text-align: center;
+}
+
+#header_avatar,
+#header_description {
+  width: 100%;
+  word-wrap: break-word;
+  font-size: 11pt;
+  text-align: center;
+}
+
+#header_avatar {
+  margin-bottom: 10px;
+}
+
+#header_avatar a {
+  display: inline-block;
+  padding: 5px;
+}
+
+#header_avatar img {
+  opacity: 0.7;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+#header_avatar img.border {
+  border: 10px solid white;
+}
+
+#header_avatar img.circle {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+#header_avatar img:hover {
+  opacity: 1.0;
+  -moz-box-shadow: 0px 0px 100px white;
+  -webkit-box-shadow: 0px 0px 100px white;
+  box-shadow: 0px 0px 100px white;
+}
+
+#header_title {
+  text-align: center;
+  font-size: 24pt;
+}
+
+#post {
+  margin: 10px auto 10px auto;
+  width: 1025px;
+  text-align: center;
+  padding: 10px;
+}
+
+#post img {
+  max-width: 1015px;
+  height: auto;
+}
+
+#notes {
+  list-style-type: none;
+  overflow: hidden;
+  display: inline-block;
+ /*  Necessary to trigger "hasLayout" in IE */
+  display: block;
+}
+
+.note .action, .note blockquote {
+  display: none;
+}
+
+ol.notes {
+  /* max 13 next to each other */
+  width: 892px;
+  list-style: none;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ol.notes li, #notes .more_notes_link {
+  float: left;
+  width: 64px;
+  height: 64px;
+  border: 5px solid transparent;
+}
+
+#notes .more_notes_link {
+  margin-left: -5px;
+  margin-top: -5px;
+}
+
+#notes_count {
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+/* 4 rows */
+#posts {
+  width: 1015px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* each min is 10px bigger than needed, to add 5px border on each side of the #posts div */
+/* 3 rows */
+@media screen and (max-width: 1025px) {
+  #posts {
+    width: 760px;
+  }
+
+  #post {
+    width: 770px;
+  }
+
+  #post img {
+    max-width: 760px;
+  }
+
+  ol.notes {
+    width: 685px;
+  } /* max 10 next to each other */
+  ol.notes li, #notes .more_notes_link, #notes img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* 2 rows */ 
+@media screen and (max-width: 770px) {
+  #posts {
+    width: 510px;
+  }
+
+  #post {
+    width: 520px;
+  }
+
+  #post img {
+    max-width: 510px;
+  }
+
+  ol.notes {
+    width: 439px;
+  } /* max 12 next to each other */
+  ol.notes li, #notes .more_notes_link, #notes img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* 1 row - smartphone */
+@media screen and (max-width: 520px) {
+  #posts {
+    width: 250px;
+  }
+
+  #post {
+    width: 260px;
+  }
+
+  #post img {
+    max-width: 250px;
+  }
+
+  ol.notes {
+    width: 217px;
+  } /* max 6 next to each other */
+  ol.notes li, #notes .more_notes_link, #notes img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.post {
+  display: inline-block;
+  width: 250px;
+  opacity: 1.00;
+  margin-bottom: 5px;
+}
+
+.post:hover {
+  opacity: 0.8;
+}
+
+.post.text, .post.quote, .post.link, .post.chat, .post.answer {
+  width: 240px;
+  word-wrap: break-word;
+  padding: 5px;
+  font-size: 10pt;
+  float: left;
+}
+
+.post .answer_form_container {
+  display: none;
+}
+
+#nextpage {
+  padding: 10px;
+  border: 2px solid black;
+  text-align: center;
+  display: block;
+  width: 200px;
+  margin: 5px auto 5px auto;
+}
+
+#loader {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  text-align: center;
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  width: 180px;
+  left: 50%;
+  margin-left: -102px;
+  bottom: 30px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+#footer {
+  text-align: center;
+  font-size: 8pt;
+  opacity: 0.5;
+  margin: 8px 0 4px 0;
+}
