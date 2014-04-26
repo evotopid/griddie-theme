@@ -16,13 +16,13 @@ function updatePage() {
       success: function(html) {
         $state.nextPage = $("#nextpage", html).attr("href");
         posts = $(".post", html);
-        $("#temp_stack").append(posts);
-        $("#temp_stack > .post").each(function() {
+        $("#posts_queue").append(posts);
+        $("#posts_queue > .post").each(function() {
           $(this).imagesLoaded(function(instance) {
             element = instance.elements[0];
             $posts.append(element);
             $posts.masonry('appended', element);
-            if ($("#temp_stack").children().length == 0) {
+            if ($("#posts_queue").children().length == 0) {
               $("#loader").hide();
               $state.loadingPosts = false;
             }

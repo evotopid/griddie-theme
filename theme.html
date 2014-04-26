@@ -25,7 +25,7 @@
   <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}" />
   <link rel="alternate" type="application/rss+xml" href="{RSS}" />
   
-  <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/f3bfkux/Depn48d6v/style.css" />
+  <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/f3bfkux/fP6n4njr4/style.css" />
   <style>
   body {
     background-color: {color:Main Background Color};
@@ -50,8 +50,8 @@
   {CustomCSS}
   </style>
   
-  <script src="http://static.tumblr.com/f3bfkux/rZen48c21/libraries.js"></script>
-  <script src="http://static.tumblr.com/f3bfkux/hsWn48c6s/theme.js"></script>
+  <script src="http://static.tumblr.com/f3bfkux/s8En4njr3/libraries.js"></script>
+  <script src="http://static.tumblr.com/f3bfkux/ia7n4njr4/theme.js"></script>
   <script>
   $(document).ready(function(){
     startThemeJS();
@@ -90,6 +90,9 @@
   
   {block:IndexPage}
   <div id="posts">
+  </div>
+  
+  <div id="posts_queue" style="display:none;">
   {block:Posts}
     {block:Text}
     <a class="post text post_hover" href="{Permalink}">
@@ -247,8 +250,6 @@
   <div><a href="{NextPage}" id="nextpage">Next Page</a></div>
   {/block:NextPage}
   
-  <!-- used to store posts with images yet to be loaded... -->
-  <div id="temp_stack" style="display: none;"></div>
   <!-- Shown when new posts are being loaded... -->
   <div id="loader">Loading new posts...</div>
 </body>
